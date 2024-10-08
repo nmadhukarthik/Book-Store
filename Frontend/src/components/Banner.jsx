@@ -24,7 +24,7 @@ export const Banner = () => {
                             <input type="text" className="grow " placeholder="Email" /> 
                         </label>
                         </div>
-                        <button className="mt-6 btn btn-secondary">Secondary</button>
+                        <button className="mt-6 btn btn-secondary"> Get Started </button>
                 </div>
                 <div className='order-1 mt-20 w-full md:w-1/2'>
                     <img 
