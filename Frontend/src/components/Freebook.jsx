@@ -35,7 +35,7 @@ const Freebook = () => {
     infinite: false,
     speed: 500,
     slidesToShow: 3,
-    slidesToScroll: 4,
+    slidesToScroll: 3,
     initialSlide: 0,
     responsive: [
       {
@@ -68,13 +68,11 @@ const Freebook = () => {
     <>
       <div className={"max-w-screen-2xl container mx-auto md:px-20 px-4"}>
         <div>
-          <h1 className='font-semibold text-xl pb-2 '> Free Offered Books </h1>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem non doloribus odit error quos nam molestias veritatis amet ex! Nulla accusantium assumenda, velit dicta sed laboriosam officiis aliquam architecto aspernatur.</p>
-        </div>
+          <h1 className='font-semibold text-xl pb-2 underline '> Free Offered Books </h1>
+          <p className='text-[18px] italic'> We are offering some books for free to encourage children to start reading books and to make it a habit for great future!!</p>
+        <br /></div>
 
-
-
-        <div className={" max-w-screen-2xl container mx-auto md:px-20 px-4"}>
+        <div >
           <Slider {...settings}>
             {freeBooks.map((item) => (
               <Cards key={item._id} item={item}></Cards>

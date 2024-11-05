@@ -1,10 +1,14 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useForm } from "react-hook-form"
 import axios from "axios"
 import toast from 'react-hot-toast'
+import { useAuth } from '../context/AuthProvider'
 
 function Login() {
+    const [authUser, setAuthUser] = useAuth()
+    const navigate = useNavigate()
+    
     const {
         register,
         handleSubmit,
@@ -16,21 +20,28 @@ function Login() {
             email: data.email,
             password: data.password
         }
-
+        
         await axios
             .post("http://localhost:4001/user/login", userInfo)
             .then((res) => {
                 console.log(res.data)
                 if (res.data) {
-                    toast.success('Successfully logged!')
+                    toast.success('Logged in Successfully!')
+                    console.log(window.location.pathname)
                     document.getElementById("my_modal_3").close()
                     setTimeout(() => {
-                        window.location.reload()
+                        
+                        if(window.location.pathname === "/signup")
+                            {navigate("/")}
+                            else
+                            { window.location.reload() }
+                            
+                        //window.location.reload()
                         localStorage.setItem("Users", JSON.stringify(res.data.user))
                     }, 1000)
-
+                    //navigate("/course")
                 }
-
+ 
             })
             .catch((err) => {
                 if (err.response) {
@@ -46,6 +57,7 @@ function Login() {
         <div>
             <dialog id="my_modal_3" className="modal ">
                 <div className="modal-box  dark:bg-slate-900 dark:text-white ">
+                    {/* </form> */}
                     <form onSubmit={handleSubmit(onSubmit)} method="dialog" >
                         {/* if there is a button in form, it will close the modal */}
                         <Link to="/"
@@ -53,7 +65,7 @@ function Login() {
                             onClick={() => document.getElementById("my_modal_3").close()}>
                             ✕
                         </Link>
-                        {/* </form> */}
+                        
                         <h3 className="font-bold text-lg"> Login </h3>
 
                         {/* email */}
@@ -82,14 +94,17 @@ function Login() {
                         </div>
                         {/* button */}
                         <div className='mt-4 flex justify-around'>
-                            <button className='bg-pink-500 text-white rounded-md px-3 py-1 hover:bg-pink-700 duration-200'> Login </button>
+                            {/* <Link to="/course" > */}
+                             <button 
+                             className='bg-orange-500 text-white rounded-md px-3 py-1 hover:bg-orange-700 duration-200'> Login 
+                             </button>
+                             {/* </Link> */}
                             <p>
                                 Not Registered?
                                 <Link to="/signup"
                                     className='underline text-blue-500 cursor-pointer'>
                                     Signup
                                 </Link>
-
                             </p>
 
                         </div>

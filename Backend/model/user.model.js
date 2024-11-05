@@ -12,8 +12,12 @@ const userSchema = mongoose.Schema({
     },
     password: {
         type: String,
-        required: true
+        required: false,
+
     }
+    // image: {
+    //     type: String
+    // }
 })
 
 const User = mongoose.model("User", userSchema)

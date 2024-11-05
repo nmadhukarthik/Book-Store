@@ -7,11 +7,11 @@ import Footer from '../components/Footer'
 const Courses = () => {
   return (
     <>
-     <Navbar/>
+     {/* <Navbar/> */}
      <div className='min-h-screen mt-[-50px] py-20'>
      <Course/>
      </div>
-     <Footer/>
+     {/* <Footer/> */}
     </>
   )
 }
