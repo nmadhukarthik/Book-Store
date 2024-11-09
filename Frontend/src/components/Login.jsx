@@ -27,7 +27,7 @@ function Login() {
                 console.log(res.data)
                 if (res.data) {
                     toast.success('Logged in Successfully!')
-                    console.log(window.location.pathname)
+                    // console.log(window.location.pathname)
                     document.getElementById("my_modal_3").close()
                     setTimeout(() => {
                         
