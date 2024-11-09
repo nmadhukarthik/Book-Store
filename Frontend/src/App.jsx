@@ -3,7 +3,7 @@ import { Toaster } from 'react-hot-toast';
 import { Navigate, Route, Routes } from "react-router-dom"
 
 import Home from './Home/Home'
-import Courses from './Courses/courses'
+import Courses from './Courses/course'
 import Signup from './components/Signup'
 import { useAuth } from './context/AuthProvider';
 import { GoogleOAuthProvider } from "@react-oauth/google"
