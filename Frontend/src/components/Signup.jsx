@@ -1,12 +1,12 @@
 import React from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
-import Login from './Login'
+// import Login from './Login'
 import { useForm } from "react-hook-form"
 import axios from "axios"
 import toast from 'react-hot-toast'
-import googleImage from "../assets/google.jpg"
-import { useGoogleLogin } from "@react-oauth/google"
-import GoogleSignup from './GoogleSignup'
+// import googleImage from "../assets/google.jpg"
+// import { useGoogleLogin } from "@react-oauth/google"
+// import GoogleSignup from './GoogleSignup'
 
 const Signup = () => {
     const location =  useLocation()

@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react'
 import Login from './Login'
 import Logout from './Logout'
 // import { FaShoppingCart } from "react-icons/fa";
-import { PiShoppingCartSimpleFill } from "react-icons/pi";
+// import { PiShoppingCartSimpleFill } from "react-icons/pi";
 import { useAuth } from '../context/AuthProvider'
-import Cart from './Cart';
-import { RiDeleteBin6Line } from "react-icons/ri";
+// import Cart from './Cart';
+// import { RiDeleteBin6Line } from "react-icons/ri";
 import { Link } from 'react-router-dom';
 
 

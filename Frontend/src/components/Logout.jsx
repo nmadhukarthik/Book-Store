@@ -2,7 +2,7 @@ import React from 'react'
 import { useAuth } from '../context/AuthProvider'
 import toast from 'react-hot-toast'
 import { useNavigate } from 'react-router-dom'
-import { PiShoppingCartSimpleFill } from "react-icons/pi";
+// import { PiShoppingCartSimpleFill } from "react-icons/pi";
 
 function Logout() {
     const [authUser, setAuthUser] = useAuth()
