@@ -38,7 +38,8 @@ const Course = () => {
             velit dicta sed laboriosam officiis aliquam architecto aspernatur.
             </p>
             <Link to="/"> 
-            <button className='bg-orange-500 text-white px-4 py-2 rounded-md hover:bg-orange-700 duration-300 mt-6'> Back </button>
+            <button className='bg-orange-500 text-white px-4 py-2 rounded-md hover:bg-orange-700 duration-300 mt-6'> 
+              Back </button>
             </Link>
            
         </div>
