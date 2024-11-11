@@ -4,7 +4,7 @@ import Course from '../components/Course'
 // import Footer from '../components/Footer'
 
 
-const courses = () => {
+const Courses = () => {
   return (
     <>
      {/* <Navbar/> */}
@@ -16,4 +16,4 @@ const courses = () => {
   )
 }
 
-export default courses
+export default Courses
