@@ -12,7 +12,7 @@ const Cart = () => {
     const getBookList = async () => {
 
         try {
-            const res = await axios.get("http://localhost:4001/book")
+            const res = await axios.get("https://book-store-8vla.onrender.com/book")
             console.log(res)
             setBooks(res.data)
             setLoading(false)   
@@ -34,7 +34,7 @@ const Cart = () => {
         for (const item in cartItems) {
             console.log(books)
             if (cartItems[item] > 0) {
-                console.log("inside if")
+                // console.log("inside if")
                 let itemInfo = books.find((product) => product._id === item)
                 console.log(itemInfo)
                 totalAmount += itemInfo.price * cartItems[item]
