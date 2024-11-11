@@ -17,7 +17,8 @@ const Freebook = () => {
  useEffect(()=> {
     const getBook = async() => {
       try {
-        const res = await axios.get("http://localhost:4001/book")
+        //const res = await axios.get("http://localhost:4001/book")
+        const res = await axios.get("http://bookstore-pied-phi.vercel.app/book")
         console.log(res.data)
         setBook(res.data)
       } catch (error) {
