@@ -9,9 +9,10 @@ import { router as userRoute } from "./route/user.route.js"
 const app = express()
 
 //global middlewares
-app.use(cors({
-    origin: ['http://localhost:5173'], // 'http://bookstore-pied-phi.vercel.app/book'],
-    credentials: true, // If using cookies/auth tokens
+app.use(corscors({
+    origin: 'https://book-store-frontend-pink.vercel.app', // Frontend URL
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
+    credentials: true // If you need to allow cookies or HTTP authentication
 }))
 app.use(express.json())
 
