@@ -49,7 +49,8 @@ const Cart = () => {
         if (loading) {
             return (<div>Loading....</div>)
         }
-        else if (Object.keys(cartItems).length === 0 || getTotalCartAmount()===0)
+        // else if (Object.keys(cartItems).length === 0  || getTotalCartAmount()===0)
+        else if (Object.keys(cartItems).length === 0)
         {
             return (<div className='mt-40 bg-orange-300 w-96 h-24 p-8 rounded-md text-center m-auto text-xl'> The Cart is empty </div>)
         }
