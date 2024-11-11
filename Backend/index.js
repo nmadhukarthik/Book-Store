@@ -9,7 +9,10 @@ import { router as userRoute } from "./route/user.route.js"
 const app = express()
 
 //global middlewares
-app.use(cors())
+app.use(cors({
+    origin: ['http://localhost:5173', 'https://bookstore-kq700xnde-madhu-ns-projects.vercel.app'],
+    credentials: true, // If using cookies/auth tokens
+}))
 app.use(express.json())
 
 dotenv.config()
