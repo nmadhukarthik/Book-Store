@@ -10,7 +10,7 @@ const app = express()
 
 //global middlewares
 app.use(cors({
-    origin: ['http://localhost:5173', 'http://bookstore-pied-phi.vercel.app/book'],
+    origin: ['http://localhost:5173'], // 'http://bookstore-pied-phi.vercel.app/book'],
     credentials: true, // If using cookies/auth tokens
 }))
 app.use(express.json())
