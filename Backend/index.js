@@ -10,7 +10,7 @@ const app = express()
 
 //global middlewares
 app.use(cors({
-    origin: 'https://book-store-frontend-pink.vercel.app', // Frontend URL
+    origin: 'https://book-store-frontend-d89snrplc-madhu-ns-projects.vercel.app', // Frontend URL
     methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
     credentials: true // If you need to allow cookies or HTTP authentication
 }))
