@@ -3,8 +3,8 @@ import { Toaster } from 'react-hot-toast';
 import { Navigate, Route, Routes } from "react-router-dom"
 
 import Home from './Home/Home'
-import Course from './components/Course'
-// import Courses from './Courses/course'
+//import Course from './components/Course'
+import Courses from './Courses/course'
 import Signup from './components/Signup'
 import { useAuth } from './context/AuthProvider';
 import { GoogleOAuthProvider } from "@react-oauth/google"
@@ -35,7 +35,7 @@ const App = () => {
       <main className="flex-grow">
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/course' element={authUser? <Course/> : <Navigate to="/signup"/>} />
+          <Route path='/course' element={authUser? <Courses/> : <Navigate to="/signup"/>} />
           <Route path='/signup' element={<GoogleWrapper />} />
           <Route path='/cart' element={<><Cart /></>} />
         </Routes>
