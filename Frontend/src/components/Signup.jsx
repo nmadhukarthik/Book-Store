@@ -1,51 +1,49 @@
-import React from 'react'
-import { Link, useLocation, useNavigate } from 'react-router-dom'
+import React from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 // import Login from './Login'
-import { useForm } from "react-hook-form"
-import axios from "axios"
-import toast from 'react-hot-toast'
+import { useForm } from "react-hook-form";
+import axios from "axios";
+import toast from "react-hot-toast";
 // import googleImage from "../assets/google.jpg"
 // import { useGoogleLogin } from "@react-oauth/google"
 // import GoogleSignup from './GoogleSignup'
 
 const Signup = () => {
-    const location =  useLocation()
-    const navigate = useNavigate()
-    const from = location.state?.from?.pathname || "/"
+    const location = useLocation();
+    const navigate = useNavigate();
+    const from = location.state?.from?.pathname || "/";
     //console.log(window.location)
     const {
         register,
         handleSubmit,
         formState: { errors },
-    } = useForm()
+    } = useForm();
 
-    const onSubmit =async (data) => {
+    const onSubmit = async (data) => {
         const userInfo = {
-            fullname : data.fullname,
-            email : data.email,
-            password : data.password
-        }
-        
+            fullname: data.fullname,
+            email: data.email,
+            password: data.password,
+        };
+
         await axios
-        .post("https://book-store-8vla.onrender.com/user/signup", userInfo)
-        .post("https://book-store-8vla.onrender.com/user/signup", userInfo)
-        // .post("http://localhost:4001/user/signup", userInfo)
-        .then((res) => { 
-            console.log(res.data)
-            if(res.data)
-            { toast.success("Signup Sucessfull") }
-            navigate(from, { replace: true})
-            localStorage.setItem("Users", JSON.stringify(res.data.user))
-        })
-        .catch((err) => {
-            if(err.response)
-            {
-                console.log(err)
-                toast.error("Error: " + err.response.data.message);
-            }
-            
-        })
-    }
+            .post("https://book-store-8vla.onrender.com/user/signup", userInfo)
+            // .post("http://localhost:4001/user/signup", userInfo)
+            .then((res) => {
+                console.log(res.data);
+                if (res.data) {
+                    toast.success("Signup Sucessfull");
+                }
+                navigate(from, { replace: true });
+                localStorage.setItem("Users", JSON.stringify(res.data.user));
+            })
+            .catch((err) => {
+                if (err.response) {
+                    console.log(err);
+                    toast.error("Error: " + err.response.data.message);
+                }
+            });
+    };
 
     // const googleResponse = async (authResult) => {
     //     try {
@@ -69,74 +67,102 @@ const Signup = () => {
 
     return (
         <>
-            <div className='flex justify-center h-screen items-center '>
-                <div className=" w-[600px]" >
+            <div className="flex justify-center h-screen items-center ">
+                <div className=" w-[600px]">
                     <div className="modal-box  dark:bg-slate-700 dark:text-white">
                         <form onSubmit={handleSubmit(onSubmit)} method="dailog">
                             {/* if there is a button in form, it will close the modal */}
-                            <Link to="/" className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</Link>
-                        
-                        <h3 className="font-bold text-lg"> Signup </h3>
+                            <Link
+                                to="/"
+                                className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+                            >
+                                ✕
+                            </Link>
 
-                        {/* name */}
-                        <div className='mt-4 space-y-2'>
-                            <span>Name</span>
-                            <br />
-                            <input type="text"
-                                placeholder='Enter your Full name'
-                                className='w-80 px-3 py-1 border rounded-md outline-none  dark:bg-slate-900 dark:text-white'
-                                {...register("fullname", { required: true })}
-                            />
-                            <br />
-                            {errors.fullname && (<span className='text-sm text-red-500'>This field is required</span>)}
-                        </div>
+                            <h3 className="font-bold text-lg"> Signup </h3>
 
-                        {/* email */}
-                        <div className='mt-4 space-y-2'>
-                            <span>Email</span>
-                            <br />
-                            <input type="email"
-                                placeholder='Enter your email'
-                                className='w-80 px-3 py-1 border rounded-md outline-none  dark:bg-slate-900 dark:text-white'
-                                {...register("email", { required: true })}
-                            />
-                            <br />
-                            {errors.email && (<span className='text-sm text-red-500'>This field is required</span>)}
-                        </div>
+                            {/* name */}
+                            <div className="mt-4 space-y-2">
+                                <span>Name</span>
+                                <br />
+                                <input
+                                    type="text"
+                                    placeholder="Enter your Full name"
+                                    className="w-80 px-3 py-1 border rounded-md outline-none  dark:bg-slate-900 dark:text-white"
+                                    {...register("fullname", {
+                                        required: true,
+                                    })}
+                                />
+                                <br />
+                                {errors.fullname && (
+                                    <span className="text-sm text-red-500">
+                                        This field is required
+                                    </span>
+                                )}
+                            </div>
 
-                        {/* password */}
-                        <div className='mt-4 space-y-2'>
-                            <span>Password</span>
-                            <br />
-                            <input type="text"
-                                placeholder='Enter your password'
-                                className='w-80 px-3 py-1 border rounded-md outline-none  dark:bg-slate-900 dark:text-white'
-                                {...register("password", { required: true })}
-                            />
-                            <br />
-                            {errors.password && (<span className='text-sm text-red-500'>This field is required</span>)}
-                        </div>
+                            {/* email */}
+                            <div className="mt-4 space-y-2">
+                                <span>Email</span>
+                                <br />
+                                <input
+                                    type="email"
+                                    placeholder="Enter your email"
+                                    className="w-80 px-3 py-1 border rounded-md outline-none  dark:bg-slate-900 dark:text-white"
+                                    {...register("email", { required: true })}
+                                />
+                                <br />
+                                {errors.email && (
+                                    <span className="text-sm text-red-500">
+                                        This field is required
+                                    </span>
+                                )}
+                            </div>
 
-                        {/* button */}
-                        <div className='mt-4 flex justify-around'>
-                            <button className='bg-orange-500 text-white rounded-md px-3 py-1 hover:bg-orange-700 duration-200'> Signup </button>
-                            <p className='text-xl'>
-                               Have Account?
-                                <Link to={"/"} 
-                                    className='underline text-blue-500 cursor-pointer'>
-                                    {/* // onClick={() => document.getElementById("my_modal_3").showModal()} */}
-                                    {/* // onClick={()=>navigate("/")}> */}
-                                    
-                                  Login
-                                </Link>
-                                {/* <Login/> */}
-                            </p>
-                        </div>
-                        
-                        <br />
-                        <hr />
-                        <br />
-                        {/* <GoogleSignup/> */}
+                            {/* password */}
+                            <div className="mt-4 space-y-2">
+                                <span>Password</span>
+                                <br />
+                                <input
+                                    type="text"
+                                    placeholder="Enter your password"
+                                    className="w-80 px-3 py-1 border rounded-md outline-none  dark:bg-slate-900 dark:text-white"
+                                    {...register("password", {
+                                        required: true,
+                                    })}
+                                />
+                                <br />
+                                {errors.password && (
+                                    <span className="text-sm text-red-500">
+                                        This field is required
+                                    </span>
+                                )}
+                            </div>
+
+                            {/* button */}
+                            <div className="mt-4 flex justify-around">
+                                <button className="bg-orange-500 text-white rounded-md px-3 py-1 hover:bg-orange-700 duration-200">
+                                    {" "}
+                                    Signup{" "}
+                                </button>
+                                <p className="text-xl">
+                                    Have Account?
+                                    <Link
+                                        to={"/"}
+                                        className="underline text-blue-500 cursor-pointer"
+                                    >
+                                        {/* // onClick={() => document.getElementById("my_modal_3").showModal()} */}
+                                        {/* // onClick={()=>navigate("/")}> */}
+                                        Login
+                                    </Link>
+                                    {/* <Login/> */}
+                                </p>
+                            </div>
+
+                            <br />
+                            <hr />
+                            <br />
+                            {/* <GoogleSignup/> */}
                         </form>
                         {/* <button className='bg-pink-500 text-white m-auto rounded-md px-3 py-1 w-[400px] flex justify-center items-center gap-5 hover:bg-pink-700 duration-200'
                                 onClick={googleLogin} 
@@ -148,7 +174,7 @@ const Signup = () => {
                 </div>
             </div>
         </>
-    )
-}
+    );
+};
 
-export default Signup
+export default Signup;
