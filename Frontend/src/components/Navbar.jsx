@@ -51,12 +51,12 @@ export const Navbar = () => {
     },[])
 
     const navItems = (
-        <>
-            <li><a href='/'>Home</a></li>
-            <li><a href='/course'>Course</a></li>
+         <>
+            <li><Link to='/'>Home</Link></li>
+            <li><Link to='/course'>Course</Link></li>
             <li><a href='#footer' className='scroll-smooth'>Contact</a></li>
             <li><a href='#footer'>About</a></li>
-        </>
+         </>
     )
 
 
